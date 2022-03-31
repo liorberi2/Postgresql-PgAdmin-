@@ -4,7 +4,6 @@ services:
   postgres:
     container_name: postgres_container
     image: postgres
-    replica: 3
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
@@ -16,7 +15,7 @@ services:
     networks:
       - postgres
     restart: unless-stopped
-        container_name: postgres_container2
+    container_name: postgres_container2
     image: postgres
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
@@ -29,7 +28,8 @@ services:
     networks:
       - postgres
     restart: unless-stopped
-        container_name: postgres_container3
+    
+    container_name: postgres_container3
     image: postgres
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
